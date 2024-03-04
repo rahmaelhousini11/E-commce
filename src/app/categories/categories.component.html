@@ -1,0 +1,40 @@
+
+<section class="container py-4">
+    <!-- ///////////// loadingscreen//////// -->
+
+<div *ngIf="isLoadingScreen" class="loading">
+    <div class="spinner">
+        <div class="rect1 me-1"></div>
+        <div class="rect2 me-1"></div>
+        <div class="rect3 me-1"></div>
+        <div class="rect4 me-1"></div>
+        <div class="rect5 me-1"></div>
+      </div>
+</div>
+
+    <div class="row g-4">
+        <div *ngFor="let c of allCategory" class="col-md-4">
+            <div (click)="allSubCategory(c._id ,c.name)" class="product border rounded-2">
+                <img height="300" class="w-100 rounded-1 rounded-bottom-0" [src]="c.image" alt="">
+               <div class="border rounded-2 rounded-top-0">
+                <p class="text-center py-3">{{c.name}}</p>
+               </div>
+            </div>
+        </div>
+
+        <div *ngIf="isClick" class="py-5">
+            <div class="row g-4 mt-2">
+               <div class="col-md-12">
+                <h2  class="text-center py-3">{{categoryName }} subcategories</h2>
+               </div>
+                <div *ngFor="let s of allSubCategoey" class="col-md-4">
+                    <div class="item text-center  border rounded-3 product p-4">
+                        <p class="cP">{{s.slug}}</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+
+   
+</section>

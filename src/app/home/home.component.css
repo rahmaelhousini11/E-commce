@@ -1,0 +1,35 @@
+
+body{
+    overflow: hidden;
+}
+
+.home{
+    width: 95%;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+p{
+    font-weight: 400;
+}
+
+.title{
+    color:#212529;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.icon button{
+    background-color: transparent;
+    border: none;
+
+}
+
+.fa-red{
+    color: #FF0000;
+}
+.col-md-3{
+    width: 23.333%;
+    margin: auto;
+
+}

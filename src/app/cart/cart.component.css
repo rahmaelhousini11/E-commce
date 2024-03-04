@@ -1,0 +1,63 @@
+
+.fontcolor{
+    color:  #212529;
+}
+
+section{
+    background-color: #F8F9FA;
+    padding: 35px 35px;
+    margin-top: 150px;
+}
+.ckeckOut h2{
+    font-size: 32px;
+    font-weight: 500;
+}
+.ckeckOut button a{
+    font-size: 20px;
+    font-weight: 400;
+}
+.price h5{
+    font-size: 20px;
+    font-weight: 500;
+}
+.details h5,h6{
+    font-weight: 500;
+    font-size: 20px;
+}
+.details button{
+    color: #DC3545;
+    background-color: transparent;
+    border: none;
+    font-weight: 400;
+}
+.details button:focus{
+    border-radius: 5px;
+    border: #DC3545 1px solid;
+}
+
+.count i{
+    font-size: 10px;
+}
+.count button{
+    border: 1px solid #22DB14;
+}
+.btn1{
+    font-size: 20px;
+    font-weight: 400;
+    border: 1px solid #22DB14;
+}
+.price span{
+    color:#22DB14;
+    font-size: 20px;
+    font-weight: 500;
+}
+.message{
+    font-size: 32px;
+    font-weight: 500;
+}
+.ckeckOutbtn button{
+
+    padding: 10px 20px;
+    font-size: 20px;
+
+}

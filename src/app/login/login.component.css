@@ -1,0 +1,32 @@
+
+.forget{
+    transition: color 0.5s;
+    cursor: pointer;
+
+}
+.forget:hover{
+    color: var(--main-color);
+}
+button{
+   padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0aad0a;
+    color: #fff;
+    font-size: 20px;
+    transition: background-color 0.5s;
+}
+button:hover{
+    background-color: #1a821a;
+
+}
+
+button:disabled,
+button[disabled]{
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 0.5px solid #000;
+    background-color: transparent;
+    color: #737678;
+    font-size: 20px;
+}

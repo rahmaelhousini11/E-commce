@@ -1,0 +1,44 @@
+
+
+<section class="container">
+
+
+    <!-- ///////////// loadingscreen//////// -->
+
+<div *ngIf="isLoadingScreen" class="loading">
+    <div class="spinner">
+        <div class="rect1 me-1"></div>
+        <div class="rect2 me-1"></div>
+        <div class="rect3 me-1"></div>
+        <div class="rect4 me-1"></div>
+        <div class="rect5 me-1"></div>
+      </div>
+</div>
+
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="item">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template *ngFor="let img of productImages" carouselSlide>
+                    <img [src]="img" alt="">
+                </ng-template> 
+            </owl-carousel-o>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="item mb-5">
+                <h2 class="title">{{productDetelis.title}}</h2>
+                <p>{{productDetelis.description}}</p>
+                <div class="d-flex justify-content-between mb-1">
+                    <span>{{productDetelis.price}} EGP</span>
+                    <span><i class="fa-solid fa-star rating-color"></i> {{productDetelis.ratingsAverage}}</span>
+                </div>
+                <i (click)="addToWishList(productDetelis._id)" class="fa-solid fa-heart d-flex justify-content-end me-1 mt-2 cursor-pointer"></i>
+            </div>
+            <div>
+                <button (click)="addCartBtn(productDetelis._id)" class="btn bg-main text-white d-block mx-auto mb-2 w-75"><i class="fa-solid fa-plus"></i> Add</button>
+            </div> 
+            
+            </div>
+        </div>
+</section>

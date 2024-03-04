@@ -1,0 +1,77 @@
+
+<section class="mx-auto container">
+
+
+    <!-- ///////////// loadingscreen//////// -->
+
+<div *ngIf="isLoadingScreen" class="loading">
+    <div class="spinner">
+        <div class="rect1 me-1"></div>
+        <div class="rect2 me-1"></div>
+        <div class="rect3 me-1"></div>
+        <div class="rect4 me-1"></div>
+        <div class="rect5 me-1"></div>
+      </div>
+</div>
+
+    <h3 class="mb-3 font1">register now</h3>
+    <!-- //message Error or sucss -->
+<h2 *ngIf="errorMessage" class="text-red mt-1 text-center">{{errorMessage}}</h2>
+
+    <!-- //formRegister -->
+    <form [formGroup]="registerForm" (ngSubmit)="RegisterSubmitMethod()">
+        <div class="mb-3">
+            <label class="font2">Name:</label>
+            <input formControlName="name" type="text" class="form-control">
+            <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched" class="alert alert-danger mt-3 p-1">
+                <p *ngIf="registerForm.get('name')?.errors?.['required']" class="text-red mt-2 ms-2">name is required</p>
+                <p *ngIf="registerForm.get('name')?.errors?.['minlength']" class="text-red mt-2 ms-2">name min length is 3</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="font2">Email:</label>
+            <input formControlName="email" type="text" class="form-control">
+            <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger mt-3 p-1">
+                <p *ngIf="registerForm.get('email')?.errors?.['required']" class="text-red mt-2 ms-2">email is required</p>
+                <p *ngIf="registerForm.get('email')?.errors?.['email']" class="text-red mt-2 ms-2">email pattern is invalid</p>
+                
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="font2">Password:</label>
+            <input  formControlName="password" type="password" class="form-control">
+            <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger mt-3 p-1">
+                <p *ngIf="registerForm.get('password')?.errors?.['required']" class="text-red mt-2 ms-2"> password is required</p>
+                <p *ngIf="registerForm.get('password')?.errors?.['pattern']" class="text-red mt-2 ms-2">
+                    must be <br>
+                    * Start with a letter (either uppercase or lowercase).<br>
+                    * Be between 6 and 9 characters in total.<br>
+                    * Can only contain letters (A-Z or a-z) and numbers (0-9)
+                </p>
+                
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="font2">rePassword:</label>
+            <input  formControlName="rePassword" type="password" class="form-control">
+            <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="alert alert-danger mt-3 p-1">
+                <p *ngIf="registerForm.get('rePassword')?.errors?.['required']" class="text-red mt-2 ms-2">rePassword is required</p>
+                <p *ngIf="registerForm.get('rePassword')?.errors?.['pattern']" class="text-red mt-2 ms-2">rePassword pattern is inavalid</p>
+                
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="font2">phone:</label>
+            <input formControlName="phone" type="text" class="form-control">
+            <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched" class="alert alert-danger mt-3 p-1">
+                <p *ngIf="registerForm.get('phone')?.errors?.['required']" class="text-red mt-2 ms-2">phone is required</p>
+                <p *ngIf="registerForm.get('phone')?.errors?.['pattern']" class="text-red mt-2 ms-2">please enter valid phone</p>
+                
+            </div>
+        </div>
+
+        <button [disabled]="registerForm.invalid" type="submit" class="d-block ms-auto">Register now<i *ngIf="isLoading"class="fa-solid fa-spinner fa-spin"></i></button>
+        
+    </form>
+
+</section>

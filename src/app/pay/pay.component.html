@@ -1,0 +1,46 @@
+
+
+<section class="container w-75">
+
+    <!-- ///////////// loadingscreen//////// -->
+
+<div *ngIf="isLoadingScreen" class="loading">
+    <div class="spinner">
+        <div class="rect1 me-1"></div>
+        <div class="rect2 me-1"></div>
+        <div class="rect3 me-1"></div>
+        <div class="rect4 me-1"></div>
+        <div class="rect5 me-1"></div>
+      </div>
+</div>
+
+    
+    <form [formGroup]="addressForm" (ngSubmit)="addressFormSubmit()">
+        <div  class="mb-3">
+            <label class="font">Details</label>
+            <input formControlName="details" type="text" class="form-control">
+            <div *ngIf="addressForm.get('details')?.errors && addressForm.get('details')?.touched" class="alert alert-danger mt-3 p-1">
+                <p *ngIf="addressForm.get('details')?.errors?.['required']" class="text-red mt-2 ms-2">details is required</p>
+                <p *ngIf="addressForm.get('details')?.errors?.['minlength']" class="text-red mt-2 ms-2">details min length is 3</p>
+            </div>
+        </div>
+        <div  class="mb-3">
+            <label class="font">Phone</label>
+            <input formControlName="phone" type="text" class="form-control">
+            <div *ngIf="addressForm.get('phone')?.errors && addressForm.get('phone')?.touched" class="alert alert-danger mt-3 p-1">
+                <p *ngIf="addressForm.get('phone')?.errors?.['required']" class="text-red mt-2 ms-2">phone is required</p>
+                <p *ngIf="addressForm.get('phone')?.errors?.['pattern']" class="text-red mt-2 ms-2">please enter valid phone</p>
+                
+            </div>
+        </div>
+        <div  class="mb-3">
+            <label class="font">City</label>
+            <input formControlName="city" type="text" class="form-control">
+            <div *ngIf="addressForm.get('city')?.errors && addressForm.get('city')?.touched" class="alert alert-danger mt-3 p-1">
+                <p *ngIf="addressForm.get('city')?.errors?.['required']" class="text-red mt-2 ms-2">city is required</p>
+            </div>
+
+        </div>
+        <button  [disabled]="addressForm.invalid" class="w-100 p-2 rounded-2 mt-5" type="submit">Pay now</button>
+    </form>
+</section>

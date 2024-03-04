@@ -1,0 +1,30 @@
+body{
+    box-sizing: border-box;
+}
+section{
+    box-sizing: border-box;
+    width: 91%;
+ 
+}
+section button:focus{
+    border: none;
+    
+}
+
+p{
+    color:  #212529;
+    font-weight: 400;
+    font-size: 16px;
+}
+.fontColor{
+    color: #4FA74F;
+    font-weight: 500;
+    font-size: 40px;
+}
+.col-md-3{
+    width: 22.333%;
+    /* margin-left: px; */
+    margin: auto;
+    
+}
+

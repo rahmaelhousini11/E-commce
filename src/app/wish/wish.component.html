@@ -1,0 +1,46 @@
+
+<section class="rounded-2 container">
+
+    <!-- ///////////// loadingscreen//////// -->
+
+<div *ngIf="isLoadingScreen"  class="loading">
+    <div class="spinner">
+        <div class="rect1 me-1"></div>
+        <div class="rect2 me-1"></div>
+        <div class="rect3 me-1"></div>
+        <div class="rect4 me-1"></div>
+        <div class="rect5 me-1"></div>
+      </div>
+</div>
+
+    <div>
+     <div class="pt-2 pb-1">
+         <div>
+             <h2 class="py-3">My wish List</h2>
+         <p *ngIf="isEmptyCart" class="message fontcolor align-self-start">
+             your wishlist is empty
+         </p>
+         </div>
+     </div>
+     <div  *ngFor="let p of allProductItems"  class="row mt-5 align-items-center border-bottom pb-3">
+         <div class="col-2">
+             <div class="item">
+                 <img class="w-100" [src]="p.imageCover" alt="">
+             </div>
+         </div>
+         <div class="col-10 ">
+             <div class="item d-flex justify-content-between ">
+                 <div class="details fontcolor">
+                     <h5>{{p.title}}</h5>
+                     <h6 class="title">{{p.price |currency:"EGP"}}</h6>
+                     <button (click)="deleteItemOfWishList(p._id)" class="mt-1"> <i class="fa-solid fa-trash"></i>  delete</button>
+                 </div>
+                 <div class="count">
+                     <button (click)="addCartBtn(p._id)" class="me-2">Add to Cart</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+    </div>
+ </section>
+ 

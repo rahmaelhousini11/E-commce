@@ -1,0 +1,45 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top p-3">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/freshcart-logo.svg" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarText">
+      <ul *ngIf="isLogin" class="navbar-nav mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link text-color" routerLink="home" routerLinkActive="text-black font">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-color" routerLink="cart"  routerLinkActive="text-black font">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-color" routerLink="wishList" routerLinkActive="text-black font">wish list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-color" routerLink="products" routerLinkActive="text-black font ">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-color" routerLink="categories" routerLinkActive="text-black font">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-color" routerLink="brands" routerLinkActive="text-black font">Brands</a>
+        </li>
+      
+       
+      </ul>
+    </div>
+    <div class="d-flex gap-3 cursor-pointer align-items-center">
+      <a *ngIf="!isLogin" class="nav-link text-color" routerLink="register" routerLinkActive="text-black">register</a>
+      <a *ngIf="!isLogin" class="nav-link text-color" routerLink="login" routerLinkActive="text-black">login</a>
+      <a *ngIf="isLogin" class="nav-link text-color position-relative" routerLink="cart" routerLinkActive="text-black">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div class="position-absolute CART text-center">{{numOfCartItem}}</div>
+      </a>
+      <a *ngIf="isLogin" (click)="logOut()" class="nav-link text-color" routerLinkActive="text-black font">logout</a>
+      
+    </div>
+  </div>
+</nav>

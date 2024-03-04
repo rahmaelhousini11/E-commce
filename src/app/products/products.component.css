@@ -1,0 +1,14 @@
+
+p{
+    font-weight: 400;
+}
+
+.title{
+    color:#212529;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.fa-red{
+    color: #FF0000;
+}

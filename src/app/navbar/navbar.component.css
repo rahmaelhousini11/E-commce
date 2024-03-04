@@ -1,0 +1,22 @@
+
+
+
+.font{
+    font-weight: 400;
+}
+.fa-cart-shopping{
+    font-size: 25px;
+}
+.CART{
+    background-color: #4FA74F;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    bottom: 20px;
+    left: 15px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    text-align: center;
+}
+

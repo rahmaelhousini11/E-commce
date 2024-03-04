@@ -1,0 +1,68 @@
+
+<section >
+
+<!-- ///////////// loadingscreen//////// -->
+
+<div *ngIf="isLoadingScreen" class="loading">
+    <div class="spinner">
+        <div class="rect1 me-1"></div>
+        <div class="rect2 me-1"></div>
+        <div class="rect3 me-1"></div>
+        <div class="rect4 me-1"></div>
+        <div class="rect5 me-1"></div>
+      </div>
+</div>
+
+<!-- //////////////////slider1///////////////////////////// -->
+    <div class="row w-50 mx-auto pt-5 g-0 mb-4">
+        <div class="col-md-6">
+            <div class="item">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide><img height="430px" class="w-100" src="assets/images/41nN4nvKaAL._AC_SY200_.jpg" alt=""></ng-template>  
+                    <ng-template carouselSlide><img height="430px" class="w-100" src="assets/images/XCM_Manual_1396328_4379574_Egypt_EG_BAU_GW_DC_SL_Jewelry_379x304_1X._SY304_CB650636675_.jpg" alt=""></ng-template>  
+                    <ng-template carouselSlide><img height="430px" class="w-100" src="assets/images/61cSNgtEISL._AC_SY200_.jpg" alt=""></ng-template>  
+                </owl-carousel-o>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="item">
+                <img height="240px" class="w-100" src="../../assets/images/XCM_Manual_1396328_4379575_Egypt_EG_BAU_GW_DC_SL_Bags_Wallets_379x304_1X._SY304_CB650636675_.jpg" alt="">
+                <img height="240px" class="w-100" src="../../assets/images/XCM_Manual_1533480_5305769_379x304_1X._SY304_CB616236518_.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+<!-- ///////////////////////slider2/////////////////////// -->
+    <div class="mt-5 w-100">
+        <app-categry-slider></app-categry-slider>
+    </div>
+
+<!-- ////////////////////////searchInput//////////////////// -->
+    <!-- //two way data bainding -->
+    <div class="mt-5">
+        <input [(ngModel)]="userWord" type="text" placeholder="search....." class="w-75 form-control my-5 mx-auto">
+    </div>
+
+    <!-- /////////////////proudect/////////////////// -->
+   <div class="home ">
+    <div class="row g-5 gap-3  mt-4">
+        <div  *ngFor="let p of allProduct | search:userWord ;let i = index" class="col-md-3 product">
+                <div [routerLink]="['/productDetelis' ,p._id]" class="item  p-1 cursor-pointer">
+                    <img [src]="p.imageCover" class="w-100" alt="product Img">
+                    <p class="text-main">{{p.category.name}}</p>
+                    <h1 class="title h2">{{p.title.split(" ").splice(0,2).join(" ")}}</h1>
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>{{p.price}} EGP</span>
+                        <span><i class="fa-solid fa-star rating-color"></i> {{p.ratingsAverage}}</span>
+                    </div>
+                </div>
+
+                <div class="icon d-flex justify-content-end">
+                <i (click)="addToWishList(p._id ,i)"  [ngClass]="{'fa-red': isAddFav && i == index}" class="fa-solid fa-heart me-1 mt-2 cursor-pointer"></i>
+                </div>
+                <button (click)="addCartBtn(p._id)" class="btn bg-main text-white d-block mx-auto mb-2 w-75"><i class="fa-solid fa-plus"></i> Add</button>
+               
+            </div>
+    </div>
+   </div>
+</section>

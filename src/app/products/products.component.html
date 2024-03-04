@@ -1,0 +1,39 @@
+
+<section class="container">
+
+
+<!-- ///////////// loadingscreen//////// -->
+
+<div *ngIf="isLoadingScreen" class="loading">
+    <div class="spinner">
+        <div class="rect1 me-1"></div>
+        <div class="rect2 me-1"></div>
+        <div class="rect3 me-1"></div>
+        <div class="rect4 me-1"></div>
+        <div class="rect5 me-1"></div>
+      </div>
+</div>
+
+
+    <div class="pt-5">
+        <input [(ngModel)]="userWord" type="text" placeholder="search....." class="w-75 form-control my-5 mx-auto">
+    </div>
+
+    <!-- /////////////////proudect/////////////////// -->
+    <div class="row g-5">
+        <div  *ngFor="let p of allProduct |search:userWord ;let i = index" class="col-md-3 product">
+                <div [routerLink]="['/productDetelis' ,p._id]" class="item  p-1 cursor-pointer">
+                    <img [src]="p.imageCover" class="w-100" alt="product Img">
+                    <p class="text-main">{{p.category.name}}</p>
+                    <h1 class="title h2">{{p.title.split(" ").splice(0,2).join(" ")}}</h1>
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>{{p.price}} EGP</span>
+                        <span><i class="fa-solid fa-star rating-color"></i> {{p.ratingsAverage}}</span>
+                    </div>
+                </div>
+                <i (click)="addToWishList(p._id ,i)"  [ngClass]="{'fa-red': isAddFav && i == index}" class="fa-solid fa-heart d-flex justify-content-end me-1 mt-2 cursor-pointer"></i>
+                <button (click)="addCartBtn(p._id)" class="btn bg-main text-white d-block mx-auto mb-2 w-75"><i class="fa-solid fa-plus"></i> Add</button>
+               
+            </div>
+    </div>
+</section>
